@@ -5,7 +5,7 @@ use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\KaryawanController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [AuthController::class, 'loginForm'])->name('home'); // Anda bisa mengganti 'home' dengan nama route lain jika mau
+Route::get('/', [AuthController::class, 'loginForm'])->name('home');
 
 // Route untuk Autentikasi
 Route::get('/login', [AuthController::class, 'loginForm'])->name('login');
