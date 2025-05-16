@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('karyawans', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
+            $table->string('email')->unique();
+            $table->string('nomor_telepon')->nullable();
+            $table->decimal('gaji_pokok', 10, 2)->default(0);
             $table->timestamps();
         });
     }

@@ -26,7 +26,7 @@ Route::middleware(['auth', 'checkRole:karyawan'])->group(function () {
 
 Route::middleware(['auth', 'checkRole:admin'])->group(function () {
     Route::get('/admin/dashboard', function () {
-        return view('admin.dashboard');
+        return view('Admin.dashbaord'); // Note the capital A and the typo in dashbaord
     })->name('admin.dashboard');
 
     // Kelola Data Karyawan

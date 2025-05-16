@@ -23,13 +23,6 @@ class AdminSeeder extends Seeder
             'email_verified_at' => now(),
         ]);
 
-        // Create corresponding karyawan record
-        Karyawan::create([
-            'nama' => 'Administrator',
-            'email' => 'admin@example.com',
-            'nomor_telepon' => '081234567890',
-            'gaji_pokok' => 5000000,
-        ]);
 
         $this->command->info('Admin user created successfully!');
         $this->command->info('Email: admin@example.com');

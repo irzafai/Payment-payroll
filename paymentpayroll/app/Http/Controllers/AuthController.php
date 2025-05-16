@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Karyawan;
 
 class AuthController extends Controller
 {
@@ -60,10 +61,18 @@ class AuthController extends Controller
             'password' => 'required|string|min:8|confirmed',
         ]);
 
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'role' => 'karyawan', // Default role for new registrations
+        ]);
+
+        // Create corresponding karyawan record
+        Karyawan::create([
+            'nama' => $request->name,
+            'email' => $request->email,
+            'gaji_pokok' => 0,
         ]);
 
         return redirect('/login')->with('success', 'Registrasi berhasil! Silakan login.');
